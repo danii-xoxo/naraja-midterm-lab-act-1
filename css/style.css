@@ -1,0 +1,226 @@
+:root {
+  --ink: #16202b;
+  --ink-soft: #5b6b7c;
+  --paper: #eef1f4;
+  --surface: #ffffff;
+  --line: #d3dae1;
+  --accent: #1f6f8b;
+  --ok: #1d7a5f;
+  --ok-tint: #e3f3ec;
+  --off: #8a5a2b;
+  --off-tint: #f7ecdf;
+  --warn: #a3372f;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 4rem;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+/* ---------- Header ---------- */
+
+.page-header {
+  max-width: 62rem;
+  margin: 0 auto 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 .35rem;
+  font-size: 1.75rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  max-width: 62rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ---------- Control panel ---------- */
+
+.controls {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: .55rem .7rem;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--ink);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.field input:focus,
+.field select:focus,
+.btn:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.btn {
+  padding: .55rem 1rem;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--accent); }
+
+.btn-primary {
+  color: #ffffff;
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover { background-color: #17596f; }
+
+/* ---------- Messages ---------- */
+
+.form-message {
+  min-height: 1.4rem;
+  margin: 1rem 0 0;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.form-message.error { color: var(--warn); }
+
+/* ---------- Profile card ---------- */
+
+.profile-card {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.profile-card h2 {
+  margin: 0 0 .5rem;
+  font-size: 1.5rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.profile-card p {
+  margin: .2rem 0;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+
+/* Status states */
+
+.profile-card.active { border-left-color: var(--ok); }
+.profile-card.inactive { border-left-color: var(--off); }
+
+.profile-card #profileStatus {
+  display: inline-block;
+  margin-top: .85rem;
+  padding: .2rem .7rem;
+  font-size: .85rem;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.profile-card.active #profileStatus {
+  color: var(--ok);
+  background-color: var(--ok-tint);
+}
+
+.profile-card.inactive #profileStatus {
+  color: var(--off);
+  background-color: var(--off-tint);
+}
+
+/* Details panel */
+
+.details-panel {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+/* Shared hidden state */
+
+.hidden { display: none; }
+
+/* ---------- Dark theme ---------- */
+
+body.dark-theme {
+  --ink: #e8edf2;
+  --ink-soft: #9fb0c0;
+  --paper: #131a21;
+  --surface: #1c252e;
+  --line: #33414f;
+  --accent: #4fa8c4;
+  --ok: #5fcfa5;
+  --ok-tint: #1d3830;
+  --off: #d9a066;
+  --off-tint: #3a2e1e;
+  --warn: #f08a80;
+}
+
+body.dark-theme .btn-primary {
+  color: #0d1419;
+}
+
+body.dark-theme .btn-primary:hover {
+  background-color: #6cbdd6;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+}
